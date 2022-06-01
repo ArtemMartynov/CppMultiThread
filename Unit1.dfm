@@ -115,7 +115,7 @@ object Form1: TForm1
     Width = 121
     Height = 23
     TabOrder = 3
-    Text = '\\.\C:'
+    Text = '\\.\E:'
   end
   object Button3: TButton
     Left = 208

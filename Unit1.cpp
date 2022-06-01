@@ -26,13 +26,13 @@ Form1 -> Close();
 void __fastcall TForm1::Button6Click(TObject *Sender)
 {
 	Edit1 -> Text = UnicodeString(bl);
-	Edit2 -> Text = "\\\\.\\C:";
+	Edit2 -> Text = "\\\\.\\E:";
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	bl = (Edit1 -> Text).ToInt();
-	DWORD bytes = 1024*1024*bl;
+	DWORD bytes = 1024*bl;
     DWORD bytesRead;
 	BYTE *Block = new BYTE[bytes];
 	name = (Edit2 -> Text).c_str();
@@ -62,18 +62,24 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	   Application->MessageBox(L"Error while trying set position in file!",L"Message", MB_OK);
 	   return;
 	}
-    int i = 0;
-	while(true){
 	bool readblock = ReadFile(fileHandle, Block, bytes, &bytesRead, NULL);
+	int i = 0;
+	while(true){
+	if (readblock == false || bytesRead != bytes){
+	//Application -> MessageBox(L"Error while trying to read block!", L"Message",MB_OK);
+	break;
+	}
 	i++;
 	Label4 -> Caption = UnicodeString(i);
-	Label9 -> Caption = std::to_wstring(Block);
-	if (readblock == false || bytesRead != bytes){
-		//Application -> MessageBox(L"Error while trying to read block!", L"Message",MB_OK);
-		return;
-	}
+	wchar_t* wblock = new wchar_t();
+	const char* cblock = reinterpret_cast<const char*>(Block);
+	size_t size = mbstowcs(nullptr,&cblock[0],0);
+	mbstowcs(&wblock[0],&cblock[0],size*10);
+	Label9 -> Caption = (wblock);
+	//sleep(100);
 	position = SetFilePointer(fileHandle, offset.LowPart, &offset.HighPart, FILE_CURRENT);
-	}
+	bool readblock = ReadFile(fileHandle, Block, bytes, &bytesRead, NULL);
+    }
 	delete[] Block;
 	CloseHandle(fileHandle);
 
@@ -86,6 +92,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 	Button3 -> Enabled = false;
 	Edit1 -> Enabled = true;
 	Edit2 -> Enabled = true;
+    Label4 -> Caption = UnicodeString(0);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
