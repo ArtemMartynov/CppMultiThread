@@ -21,7 +21,7 @@
 //        Form1->Caption = "Updated in a thread";
 //      }
 //---------------------------------------------------------------------------
-int i = 0;
+int i;
 
 void __fastcall ProcessThread::IsBlockRead()
 {
@@ -30,10 +30,11 @@ void __fastcall ProcessThread::IsBlockRead()
 }
 
 __fastcall ProcessThread::ProcessThread(TEvent *MyEvent, bool CreateSuspended)
-	: TThread(CreateSuspended)
+	: TThread(CreateSuspended), MyEvent(MyEvent)
 {
 		FreeOnTerminate = true;
-        MyEvent = MyEvent;
+//        MyEvent = MyEvent;
+        i = 0;
 }
 //---------------------------------------------------------------------------
 void __fastcall ProcessThread::Execute()

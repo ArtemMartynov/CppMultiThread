@@ -59,6 +59,7 @@ void __fastcall ReadThread::Execute()
    	ProcessThreadPtr = new ProcessThread(MyEvent, false);
 	while (true){
         if (Terminated) {
+            Form1 -> Label10 -> Caption = UnicodeString(L"FINISHED");
 			break;
 		}
 
