@@ -1,12 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.h=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.807,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.333,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Project1PCH1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.635,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Project1.cbproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.026,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.cpp=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.dfm</Transaction>
-  </Transactions>
+    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.h=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.635,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Project1.cbproj=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.807,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.cpp=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.812,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit1.dfm=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.333,C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Project1PCH1.h=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2022.06.02 09:38:40.065,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit2.cpp</Transaction>
+    <Transaction>2022.06.02 09:38:49.735,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\MultiThread-Proj\Unit3.cpp</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Project1.cpp"/>
+    <File Path="Project1PCH1.h"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="Unit1.h"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.h"/>
+    <File Path="Unit3.cpp"/>
+    <File Path="Unit3.cpp"/>
+    <File Path="Unit3.h"/>
+  </ProjectSortOrder>
 </BorlandProject>
