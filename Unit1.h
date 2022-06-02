@@ -36,11 +36,12 @@ __published:	// IDE-managed Components
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
 private:	// User declarations
+	class ReadThread* ReadThread;
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };
 /*
-  // Структура ФС ExFAT
+  // ExFAT remove later
   #pragma pack(push,1)
   typedef struct{
 	BYTE Padding1[3];
