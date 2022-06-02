@@ -54,7 +54,7 @@ __published:	// IDE-managed Components
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
 private:	// User declarations
-	class ReadThread* ReadThread;
+	class ReadThread* ReadThreadPtr;
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };
@@ -62,7 +62,7 @@ public:		// User declarations
   #pragma pack(push,1)
   typedef struct{
 	BYTE skip1[3];
-	ULONGLONG OEM_Name;
+	char OEM_Name[8];
 	USHORT BytesPerSector;
 	BYTE SectorsPerCluster;
 	BYTE skip2[10];
@@ -78,6 +78,31 @@ public:		// User declarations
 	ULONGLONG VolumeSerialNumber;
     USHORT Checksum;
   } NTFS_BootRecord;
+
+  /*
+  //FAT
+  typedef struct{
+	BYTE skip1[3];
+	char OEM_Name[8];
+	USHORT BytesPerSector;
+	BYTE SectorsPerCluster;
+	BYTE FATTables;
+	USHORT RootEntries;
+	USHORT SmallSecotrs;
+	BYTE MediaTyoe;
+	USHORT FATTableSectors;
+	USHORT SectorsPerTrack;
+	USHORT NumberOfHeads;
+	BYTE skip2[4];
+	BYTE LargeSectors[4];
+	BYTE PhysicalDiskNumber;
+	BYTE skip3;
+	BYTE Signature;
+	BYTE VolumeSerialNumber[4];
+	BYTE VolumeLabel[11];
+    ULONGLONG SystemID;
+  } FAT32_BootRecord;
+  */
   #pragma pack(pop)
 
 

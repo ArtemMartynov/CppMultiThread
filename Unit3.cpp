@@ -3,6 +3,8 @@
 #include <System.hpp>
 #pragma hdrstop
 
+#include "Unit1.h"
+#include "Unit2.h"
 #include "Unit3.h"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
@@ -19,14 +21,37 @@
 //        Form1->Caption = "Updated in a thread";
 //      }
 //---------------------------------------------------------------------------
+int i = 0;
 
-__fastcall ProcessThread::ProcessThread(bool CreateSuspended)
+void __fastcall ProcessThread::IsBlockRead()
+{
+    Form1 -> Label6 -> Caption = UnicodeString(i);
+	Form1 -> Label10 -> Caption = UnicodeString(L"OK");
+}
+
+__fastcall ProcessThread::ProcessThread(TEvent *MyEvent, bool CreateSuspended)
 	: TThread(CreateSuspended)
 {
+		FreeOnTerminate = true;
+        MyEvent = MyEvent;
 }
 //---------------------------------------------------------------------------
 void __fastcall ProcessThread::Execute()
 {
-	//---- Place thread code here ----
+	while(true)
+	{
+        if (Terminated) {
+            break;
+		}
+		if (MyEvent -> WaitFor(0) == wrSignaled) {
+			i++;
+			Synchronize(&IsBlockRead);
+			Sleep(20);
+			MyEvent -> ResetEvent();
+
+		}
+	}
+
 }
+
 //---------------------------------------------------------------------------

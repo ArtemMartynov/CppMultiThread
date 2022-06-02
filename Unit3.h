@@ -8,11 +8,12 @@
 class ProcessThread : public TThread
 {
 private:
-    TEvent* Myevent;
+    TEvent* MyEvent;
 protected:
 	void __fastcall Execute();
+	void __fastcall IsBlockRead();
 public:
-	__fastcall ProcessThread(bool CreateSuspended);
+	__fastcall ProcessThread(TEvent *MyEvent, bool CreateSuspended);
 };
 //---------------------------------------------------------------------------
 #endif

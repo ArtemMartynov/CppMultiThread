@@ -6,6 +6,8 @@
 #include <string.h>
 
 #include "Unit1.h"
+#include "Unit2.h"
+#include "Unit3.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -26,7 +28,7 @@ Form1 -> Close();
 void __fastcall TForm1::Button6Click(TObject *Sender)
 {
 	Edit1 -> Text = UnicodeString(bl);
-	Edit2 -> Text = "\\\\.\\E:";
+	Edit2 -> Text = UnicodeString(name);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
@@ -61,7 +63,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		return;
 	}
 
-	ULONGLONG OEM_Name = ptrNTFS_BootRecord -> OEM_Name;
+	char *OEM_Name = ptrNTFS_BootRecord -> OEM_Name;
 	USHORT BytesPerSector = ptrNTFS_BootRecord -> BytesPerSector;
 	BYTE SectorsPerCluster = ptrNTFS_BootRecord -> SectorsPerCluster;
 	UINT16 SectorsPerTrack = ptrNTFS_BootRecord -> SectorsPerTrack;
@@ -100,10 +102,12 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	Edit1 -> Enabled = false;
 	Edit2 -> Enabled = false;
 
+	ReadThreadPtr = new ReadThread(false);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
+    ReadThreadPtr->Terminate();
 	Button1 -> Enabled = true;
 	Button2 -> Enabled = true;
 	Button4 -> Enabled = false;
